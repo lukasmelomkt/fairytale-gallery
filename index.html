@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>FAIRYTALE LUXURY STAYS</title>
+<style>
+:root{--bg:#fff;--ink:#111;--gap:12px;--max:1760px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body.no-scroll{overflow:hidden}
+header{padding:clamp(34px,5vw,70px) 20px clamp(28px,4vw,52px);text-align:center}
+h1{margin:0;font-size:clamp(22px,2.3vw,40px);line-height:1.15;font-weight:700;letter-spacing:clamp(.10em,.75vw,.18em)}
+main{width:min(var(--max),calc(100% - 24px));margin:0 auto;padding-bottom:12px}
+.gallery{columns:4 300px;column-gap:var(--gap)}
+.gallery-item{display:block;width:100%;padding:0;margin:0 0 var(--gap);border:0;background:transparent;overflow:hidden;break-inside:avoid;cursor:zoom-in}
+.gallery-item img{display:block;width:100%;height:auto;transition:transform 240ms cubic-bezier(.22,.75,.2,1),filter 240ms ease,opacity 240ms ease;will-change:transform}
+@media (hover:hover) and (pointer:fine){.gallery-item:hover img{transform:scale(1.025);filter:brightness(.94) contrast(1.03)}}
+.lightbox{position:fixed;inset:0;z-index:9999;display:none;background:rgba(5,5,5,.97);color:#fff;opacity:0;transition:opacity 160ms ease;overscroll-behavior:contain}
+.lightbox.open{display:block;opacity:1}
+.stage{position:absolute;inset:0;overflow:hidden;touch-action:none;user-select:none}
+.photo-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:56px 78px;overflow:hidden}
+.lightbox-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transform-origin:center center;will-change:transform,opacity;transition:opacity 150ms ease;user-select:none;-webkit-user-drag:none;cursor:default}
+.lightbox-img.dragging{cursor:grabbing} .lightbox-img.switching{opacity:.18}
+.control{position:absolute;z-index:4;width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.34);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background 160ms ease,transform 160ms ease}
+.control:hover{background:rgba(255,255,255,.15)}
+.control svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.close{top:18px;right:18px} .prev{left:18px;top:50%;transform:translateY(-50%)} .next{right:18px;top:50%;transform:translateY(-50%)}
+.prev:hover,.next:hover{transform:translateY(-50%) scale(1.05)}
+.zoom-controls{position:absolute;z-index:4;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:8px} .zoom-controls .control{position:static}
+@media(max-width:900px){:root{--gap:8px}main{width:calc(100% - 16px)}.gallery{columns:3 220px}.photo-wrap{padding:58px 50px 72px}.prev{left:8px}.next{right:8px}.close{top:max(10px,env(safe-area-inset-top));right:10px}.zoom-controls{bottom:max(10px,env(safe-area-inset-bottom))}}
+@media(max-width:620px){header{padding-left:12px;padding-right:12px}h1{letter-spacing:.10em}.gallery{columns:2 150px}.photo-wrap{padding:58px 8px 70px}.control{width:42px;height:42px}.prev,.next{top:auto;bottom:max(10px,env(safe-area-inset-bottom));transform:none}.prev{left:10px}.next{right:10px}.prev:hover,.next:hover{transform:scale(1.05)}}
+@media(max-width:410px){.gallery{columns:1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><h1>FAIRYTALE LUXURY STAYS</h1></header>
+<main><section class="gallery" aria-label="Photo gallery">
+      <button class="gallery-item" type="button" data-index="0" aria-label="Open image 1">
+        <img src="photo-001.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="1" aria-label="Open image 2">
+        <img src="photo-002.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="2" aria-label="Open image 3">
+        <img src="photo-003.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="3" aria-label="Open image 4">
+        <img src="photo-004.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="4" aria-label="Open image 5">
+        <img src="photo-005.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="5" aria-label="Open image 6">
+        <img src="photo-006.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="6" aria-label="Open image 7">
+        <img src="photo-007.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="7" aria-label="Open image 8">
+        <img src="photo-008.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="8" aria-label="Open image 9">
+        <img src="photo-009.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="9" aria-label="Open image 10">
+        <img src="photo-010.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="10" aria-label="Open image 11">
+        <img src="photo-011.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="11" aria-label="Open image 12">
+        <img src="photo-012.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="12" aria-label="Open image 13">
+        <img src="photo-013.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="13" aria-label="Open image 14">
+        <img src="photo-014.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="14" aria-label="Open image 15">
+        <img src="photo-015.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="15" aria-label="Open image 16">
+        <img src="photo-016.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="16" aria-label="Open image 17">
+        <img src="photo-017.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="17" aria-label="Open image 18">
+        <img src="photo-018.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="18" aria-label="Open image 19">
+        <img src="photo-019.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="19" aria-label="Open image 20">
+        <img src="photo-020.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="20" aria-label="Open image 21">
+        <img src="photo-021.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="21" aria-label="Open image 22">
+        <img src="photo-022.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="22" aria-label="Open image 23">
+        <img src="photo-023.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="23" aria-label="Open image 24">
+        <img src="photo-024.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="24" aria-label="Open image 25">
+        <img src="photo-025.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="25" aria-label="Open image 26">
+        <img src="photo-026.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="26" aria-label="Open image 27">
+        <img src="photo-027.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="27" aria-label="Open image 28">
+        <img src="photo-028.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="28" aria-label="Open image 29">
+        <img src="photo-029.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="29" aria-label="Open image 30">
+        <img src="photo-030.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="30" aria-label="Open image 31">
+        <img src="photo-031.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="31" aria-label="Open image 32">
+        <img src="photo-032.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="32" aria-label="Open image 33">
+        <img src="photo-033.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="33" aria-label="Open image 34">
+        <img src="photo-034.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="34" aria-label="Open image 35">
+        <img src="photo-035.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="35" aria-label="Open image 36">
+        <img src="photo-036.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="36" aria-label="Open image 37">
+        <img src="photo-037.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="37" aria-label="Open image 38">
+        <img src="photo-038.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="38" aria-label="Open image 39">
+        <img src="photo-039.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="39" aria-label="Open image 40">
+        <img src="photo-040.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="40" aria-label="Open image 41">
+        <img src="photo-041.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="41" aria-label="Open image 42">
+        <img src="photo-042.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="42" aria-label="Open image 43">
+        <img src="photo-043.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="43" aria-label="Open image 44">
+        <img src="photo-044.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="44" aria-label="Open image 45">
+        <img src="photo-045.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="45" aria-label="Open image 46">
+        <img src="photo-046.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="46" aria-label="Open image 47">
+        <img src="photo-047.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="47" aria-label="Open image 48">
+        <img src="photo-048.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="48" aria-label="Open image 49">
+        <img src="photo-049.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="49" aria-label="Open image 50">
+        <img src="photo-050.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="50" aria-label="Open image 51">
+        <img src="photo-051.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="51" aria-label="Open image 52">
+        <img src="photo-052.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="52" aria-label="Open image 53">
+        <img src="photo-053.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="53" aria-label="Open image 54">
+        <img src="photo-054.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="54" aria-label="Open image 55">
+        <img src="photo-055.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="55" aria-label="Open image 56">
+        <img src="photo-056.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="56" aria-label="Open image 57">
+        <img src="photo-057.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="57" aria-label="Open image 58">
+        <img src="photo-058.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="58" aria-label="Open image 59">
+        <img src="photo-059.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="59" aria-label="Open image 60">
+        <img src="photo-060.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="60" aria-label="Open image 61">
+        <img src="photo-061.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="61" aria-label="Open image 62">
+        <img src="photo-062.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="62" aria-label="Open image 63">
+        <img src="photo-063.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="63" aria-label="Open image 64">
+        <img src="photo-064.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="64" aria-label="Open image 65">
+        <img src="photo-065.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="65" aria-label="Open image 66">
+        <img src="photo-066.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="66" aria-label="Open image 67">
+        <img src="photo-067.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="67" aria-label="Open image 68">
+        <img src="photo-068.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="68" aria-label="Open image 69">
+        <img src="photo-069.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="69" aria-label="Open image 70">
+        <img src="photo-070.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="70" aria-label="Open image 71">
+        <img src="photo-071.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="71" aria-label="Open image 72">
+        <img src="photo-072.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="72" aria-label="Open image 73">
+        <img src="photo-073.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="73" aria-label="Open image 74">
+        <img src="photo-074.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="74" aria-label="Open image 75">
+        <img src="photo-075.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="75" aria-label="Open image 76">
+        <img src="photo-076.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="76" aria-label="Open image 77">
+        <img src="photo-077.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="77" aria-label="Open image 78">
+        <img src="photo-078.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="78" aria-label="Open image 79">
+        <img src="photo-079.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="79" aria-label="Open image 80">
+        <img src="photo-080.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-index="80" aria-label="Open image 81">
+        <img src="photo-081.jpg" alt="" loading="lazy" decoding="async">
+      </button>
+</section></main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+ <div class="stage" id="stage">
+  <div class="photo-wrap" id="photoWrap"><img class="lightbox-img" id="lightboxImg" src="" alt=""></div>
+  <button class="control close" id="closeBtn" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="control prev" id="prevBtn" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="control next" id="nextBtn" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="zoom-controls">
+   <button class="control" id="zoomOutBtn" type="button" aria-label="Zoom out"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
+   <button class="control" id="resetZoomBtn" type="button" aria-label="Reset zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4M8 11h6M11 8v6"/></svg></button>
+   <button class="control" id="zoomInBtn" type="button" aria-label="Zoom in"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></svg></button>
+  </div>
+ </div>
+</div>
+<script>
+const images=["photo-001.jpg", "photo-002.jpg", "photo-003.jpg", "photo-004.jpg", "photo-005.jpg", "photo-006.jpg", "photo-007.jpg", "photo-008.jpg", "photo-009.jpg", "photo-010.jpg", "photo-011.jpg", "photo-012.jpg", "photo-013.jpg", "photo-014.jpg", "photo-015.jpg", "photo-016.jpg", "photo-017.jpg", "photo-018.jpg", "photo-019.jpg", "photo-020.jpg", "photo-021.jpg", "photo-022.jpg", "photo-023.jpg", "photo-024.jpg", "photo-025.jpg", "photo-026.jpg", "photo-027.jpg", "photo-028.jpg", "photo-029.jpg", "photo-030.jpg", "photo-031.jpg", "photo-032.jpg", "photo-033.jpg", "photo-034.jpg", "photo-035.jpg", "photo-036.jpg", "photo-037.jpg", "photo-038.jpg", "photo-039.jpg", "photo-040.jpg", "photo-041.jpg", "photo-042.jpg", "photo-043.jpg", "photo-044.jpg", "photo-045.jpg", "photo-046.jpg", "photo-047.jpg", "photo-048.jpg", "photo-049.jpg", "photo-050.jpg", "photo-051.jpg", "photo-052.jpg", "photo-053.jpg", "photo-054.jpg", "photo-055.jpg", "photo-056.jpg", "photo-057.jpg", "photo-058.jpg", "photo-059.jpg", "photo-060.jpg", "photo-061.jpg", "photo-062.jpg", "photo-063.jpg", "photo-064.jpg", "photo-065.jpg", "photo-066.jpg", "photo-067.jpg", "photo-068.jpg", "photo-069.jpg", "photo-070.jpg", "photo-071.jpg", "photo-072.jpg", "photo-073.jpg", "photo-074.jpg", "photo-075.jpg", "photo-076.jpg", "photo-077.jpg", "photo-078.jpg", "photo-079.jpg", "photo-080.jpg", "photo-081.jpg"];
+const thumbs=[...document.querySelectorAll('.gallery-item')];
+const lightbox=document.getElementById('lightbox'),stage=document.getElementById('stage'),photoWrap=document.getElementById('photoWrap'),img=document.getElementById('lightboxImg');
+const closeBtn=document.getElementById('closeBtn'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),zoomInBtn=document.getElementById('zoomInBtn'),zoomOutBtn=document.getElementById('zoomOutBtn'),resetZoomBtn=document.getElementById('resetZoomBtn');
+let current=0,zoom=1,panX=0,panY=0,dragging=false,dragStartX=0,dragStartY=0,panStartX=0,panStartY=0,touchStartX=0,touchStartY=0,touchMoved=false;
+const MIN_ZOOM=1,MAX_ZOOM=4;
+function applyTransform(){img.style.transform=`translate3d(${panX}px,${panY}px,0) scale(${zoom})`;img.style.cursor=zoom>1?(dragging?'grabbing':'grab'):'default'}
+function resetView(){zoom=1;panX=0;panY=0;applyTransform()}
+function setZoom(v){zoom=Math.max(MIN_ZOOM,Math.min(MAX_ZOOM,v));if(zoom<=1){panX=0;panY=0}applyTransform()}
+function changeZoom(d){setZoom(zoom+d)}
+function preloadNeighbors(){let a=new Image(),b=new Image();a.src=images[(current-1+images.length)%images.length];b.src=images[(current+1)%images.length]}
+function showImage(i){current=(i+images.length)%images.length;resetView();img.classList.add('switching');let l=new Image();l.src=images[current];l.onload=()=>{img.src=l.src;requestAnimationFrame(()=>img.classList.remove('switching'));preloadNeighbors()}}
+function openLightbox(i){current=i;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll');showImage(current);closeBtn.focus({preventScroll:true})}
+function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll');resetView()}
+function previousImage(){showImage(current-1)} function nextImage(){showImage(current+1)}
+thumbs.forEach((t,i)=>t.addEventListener('click',()=>openLightbox(i)));closeBtn.addEventListener('click',closeLightbox);prevBtn.addEventListener('click',previousImage);nextBtn.addEventListener('click',nextImage);zoomInBtn.addEventListener('click',()=>changeZoom(.5));zoomOutBtn.addEventListener('click',()=>changeZoom(-.5));resetZoomBtn.addEventListener('click',resetView);
+document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft'&&zoom===1)previousImage();if(e.key==='ArrowRight'&&zoom===1)nextImage();if(e.key==='+'||e.key==='=')changeZoom(.5);if(e.key==='-')changeZoom(-.5);if(e.key==='0')resetView()});
+photoWrap.addEventListener('wheel',e=>{if(!lightbox.classList.contains('open'))return;e.preventDefault();setZoom(zoom+(e.deltaY<0?.25:-.25))},{passive:false});
+photoWrap.addEventListener('dblclick',e=>{e.preventDefault();zoom===1?setZoom(2):resetView()});
+img.addEventListener('pointerdown',e=>{if(zoom<=1)return;dragging=true;dragStartX=e.clientX;dragStartY=e.clientY;panStartX=panX;panStartY=panY;img.setPointerCapture(e.pointerId);img.classList.add('dragging')});
+img.addEventListener('pointermove',e=>{if(!dragging)return;panX=panStartX+(e.clientX-dragStartX);panY=panStartY+(e.clientY-dragStartY);applyTransform()});
+img.addEventListener('pointerup',e=>{dragging=false;img.classList.remove('dragging');try{img.releasePointerCapture(e.pointerId)}catch(_){}});img.addEventListener('pointercancel',()=>{dragging=false;img.classList.remove('dragging')});
+stage.addEventListener('touchstart',e=>{if(e.touches.length!==1||zoom!==1)return;touchMoved=false;touchStartX=e.touches[0].clientX;touchStartY=e.touches[0].clientY},{passive:true});
+stage.addEventListener('touchmove',e=>{if(e.touches.length!==1||zoom!==1)return;let dx=e.touches[0].clientX-touchStartX,dy=e.touches[0].clientY-touchStartY;if(Math.abs(dx)>12||Math.abs(dy)>12)touchMoved=true},{passive:true});
+stage.addEventListener('touchend',e=>{if(zoom!==1||!touchMoved||!e.changedTouches.length)return;let dx=e.changedTouches[0].clientX-touchStartX,dy=e.changedTouches[0].clientY-touchStartY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15)dx<0?nextImage():previousImage()},{passive:true});
+stage.addEventListener('click',e=>{if(e.target===stage||e.target===photoWrap)closeLightbox()});
+</script>
+</body>
+</html>
